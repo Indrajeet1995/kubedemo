@@ -1,0 +1,28 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: demoAdmin
+  namespace: demo
+rules:
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"]
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: demoBinding
+  namespace: demo
+subjects:
+  - kind: ServiceAccount
+    name: demoaccount
+    namespace: demo
+roleRef:
+  kind: Role
+  name: demoAdmin
+  apiGroup: rbac.authorization.k8s.io
