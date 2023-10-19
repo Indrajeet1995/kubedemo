@@ -6,10 +6,10 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["pods/exec"]
-    verbs: ["none"]  # Use a non-standard verb
+    verbs: ["none"]  
   - apiGroups: ["*"]
     resources: ["*"]
-    verbs: ["none"]  # Use a non-standard verb
+    verbs: ["none"]  
 
 ---
 kind: RoleBinding
